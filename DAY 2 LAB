@@ -1,0 +1,119 @@
+1. Scenario: You are working on a project that involves analyzing student performance data for a class of 10 students. The data is stored in a NumPy array named student_scores, where each row represents a student and each column represents a different subject. The subjects are arranged in the following order: Math, Science, English, and History. Your task is to calculate the average score for each subject and identify the subject with the highest average score.
+Question: How would you use NumPy arrays to calculate the average score for each subject and determine the subject with the highest average score? Assume 4x4 matrix that stores marks of each student in given order.
+
+import numpy as np
+
+# Assuming student_scores is a 4x4 array with each row representing a student and each column a subject
+student_scores = np.array([
+    [85, 90, 78, 92],
+    [76, 88, 82, 95],
+    [90, 94, 89, 87],
+    [78, 80, 85, 88]
+])
+
+# Calculate the average score for each subject
+average_scores = np.mean(student_scores, axis=0)
+
+# Identify the subject with the highest average score
+highest_average_subject_index = np.argmax(average_scores)
+
+# Display the results
+print("Average Scores for Each Subject:", average_scores)
+print("Subject with the Highest Average Score:", highest_average_subject_index)
+
+
+2.	Scenario: You are a data analyst working for a company that sells products online. You have been tasked with analyzing the sales data for the past month. The data is stored in a NumPy array.
+Question: How would you find the average price of all the products sold in the past month? Assume 3x3 matrix with each row representing the sales for a different product
+
+
+import numpy as np
+
+# Assuming sales_data is a 3x3 array with each row representing a product and each column an attribute
+sales_data = np.array([
+    [1, 50, 20.0],   # Product 1: ID, Quantity Sold, Price
+    [2, 30, 15.0],   # Product 2: ID, Quantity Sold, Price
+    [3, 40, 18.0]    # Product 3: ID, Quantity Sold, Price
+])
+
+# Extract the price column (assuming it is the third column, index 2)
+prices = sales_data[:, 2]
+
+# Calculate the average price
+average_price = np.mean(prices)
+
+# Display the result
+print("Average Price of All Products:", average_price)
+
+
+3.	Scenario: You are working on a project that involves analyzing a dataset containing information about houses in a neighborhood. The dataset is stored in a CSV file, and you have imported it into a NumPy array named house_data. Each row of the array represents a house, and the columns contain various features such as the number of bedrooms, square footage, and sale price.
+Question: Using NumPy arrays and operations, how would you find the average sale price of houses with more than four bedrooms in the neighborhood?
+import numpy as np
+
+# Assuming house_data is a NumPy array with each row representing a house and columns containing features
+# Let's assume the number of bedrooms is in the second column (index 1)
+house_data = np.array([
+    [2000, 5, 250000],   # House 1: Square Footage, Bedrooms, Sale Price
+    [1800, 4, 220000],   # House 2: Square Footage, Bedrooms, Sale Price
+    [2200, 3, 280000],   # House 3: Square Footage, Bedrooms, Sale Price
+    # ... more houses
+])
+
+# Extract the sale price column (assuming it is the third column, index 2)
+sale_prices = house_data[:, 2]
+
+# Create a boolean mask for houses with more than four bedrooms
+more_than_four_bedrooms_mask = house_data[:, 1] > 4
+
+# Apply the mask to get sale prices of houses with more than four bedrooms
+sale_prices_more_than_four_bedrooms = sale_prices[more_than_four_bedrooms_mask]
+
+# Calculate the average sale price for houses with more than four bedrooms
+average_sale_price_more_than_four_bedrooms = np.mean(sale_prices_more_than_four_bedrooms)
+
+# Display the result
+print("Average Sale Price of Houses with More than Four Bedrooms:", average_sale_price_more_than_four_bedrooms)
+
+
+4.	Scenario: You are working on a project that involves analyzing the sales performance of a company over the past four quarters. The quarterly sales data is stored in a NumPy array named sales_data, where each element represents the sales amount for a specific quarter. Your task is to calculate the total sales for the year and determine the percentage increase in sales from the first quarter to the fourth quarter.
+Question: Using NumPy arrays and arithmetic operations calculate the total sales for the year and determine the percentage increase in sales from the first quarter to the fourth quarter?
+
+
+import numpy as np
+
+# Assuming sales_data is a 1D NumPy array with quarterly sales data
+sales_data = np.array([100000, 120000, 110000, 150000])  # Replace with your actual data
+
+# Calculate the total sales for the year
+total_sales_year = np.sum(sales_data)
+
+# Determine the percentage increase from the first quarter to the fourth quarter
+percentage_increase = ((sales_data[3] - sales_data[0]) / sales_data[0]) * 100
+
+# Display the results
+print("Total Sales for the Year:", total_sales_year)
+print("Percentage Increase from Q1 to Q4:", percentage_increase, "%")
+
+
+5.	Scenario: You are a data analyst working for a car manufacturing company. As part of your analysis, you have a dataset containing information about the fuel efficiency of different car models. The dataset is stored in a NumPy array named fuel_efficiency, where each element represents the fuel efficiency (in miles per gallon) of a specific car model. Your task is to calculate the average fuel efficiency and determine the percentage improvement in fuel efficiency between two car models.
+Question: How would you use NumPy arrays and arithmetic operations to calculate the average fuel efficiency and determine the percentage improvement in fuel efficiency between two car models?
+
+import numpy as np
+
+# Assuming fuel_efficiency is a 1D NumPy array with fuel efficiency data
+fuel_efficiency = np.array([25, 30, 22, 35, 28])  # Replace with your actual data
+
+# Calculate the average fuel efficiency
+average_fuel_efficiency = np.mean(fuel_efficiency)
+
+# Determine the percentage improvement between two car models (e.g., model at index 2 and model at index 4)
+model_index_1 = 2
+model_index_2 = 4
+
+fuel_efficiency_model_1 = fuel_efficiency[model_index_1]
+fuel_efficiency_model_2 = fuel_efficiency[model_index_2]
+
+percentage_improvement = ((fuel_efficiency_model_2 - fuel_efficiency_model_1) / fuel_efficiency_model_1) * 100
+
+# Display the results
+print("Average Fuel Efficiency:", average_fuel_efficiency, "miles per gallon")
+print("Percentage Improvement between Model", model_index_1, "and Model", model_index_2, ":", percentage_improvement, "%")
